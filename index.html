@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#fff8fb">
+
+    <title>Pour Nourine 🤍</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+            font-family: Georgia, "Times New Roman", serif;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(255, 220, 232, 0.8),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(238, 220, 250, 0.7),
+                    transparent 35%
+                ),
+                #fff8fb;
+
+            color: #3d3035;
+            overflow-x: hidden;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* ========================================
+           PAGE
+        ======================================== */
+
+        .page {
+            min-height: 100vh;
+            min-height: 100dvh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding:
+                max(30px, env(safe-area-inset-top))
+                max(18px, env(safe-area-inset-right))
+                max(30px, env(safe-area-inset-bottom))
+                max(18px, env(safe-area-inset-left));
+
+            position: relative;
+        }
+
+        .screen {
+            width: 100%;
+            max-width: 680px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ========================================
+           INTRO
+        ======================================== */
+
+        .intro {
+            animation: fadeUp 1.2s ease forwards;
+        }
+
+        .small-text {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #a98b96;
+            margin-bottom: 18px;
+        }
+
+        .name {
+            font-size: clamp(42px, 12vw, 76px);
+            font-weight: normal;
+            color: #4b343e;
+            line-height: 1.05;
+            margin-bottom: 8px;
+        }
+
+        .nickname {
+            font-size: clamp(20px, 6vw, 29px);
+            font-style: italic;
+            color: #b77c91;
+            margin-bottom: 38px;
+        }
+
+        .intro-message {
+            font-size: clamp(16px, 4.5vw, 18px);
+            line-height: 1.8;
+            max-width: 500px;
+            margin: auto;
+            color: #66545c;
+        }
+
+        /* ========================================
+           ENVELOPPE
+        ======================================== */
+
+        .envelope-container {
+            margin: 42px auto 25px;
+
+            width: 190px;
+            height: 135px;
+
+            position: relative;
+            cursor: pointer;
+
+            transition: transform 0.3s ease;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .envelope-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .envelope-container:active {
+            transform: scale(0.96);
+        }
+
+        .envelope {
+            width: 190px;
+            height: 120px;
+
+            position: absolute;
+            bottom: 0;
+
+            background: #e8a9bd;
+
+            border-radius: 5px;
+
+            box-shadow:
+                0 15px 35px rgba(145, 89, 109, 0.2);
+        }
+
+        .envelope::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background: #d991aa;
+
+            clip-path: polygon(
+                0 0,
+                50% 55%,
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+
+            border-radius: 5px;
+        }
+
+        .flap {
+            position: absolute;
+
+            width: 0;
+            height: 0;
+
+            border-left: 95px solid transparent;
+            border-right: 95px solid transparent;
+            border-top: 65px solid #f0b7c8;
+
+            top: 0;
+            left: 0;
+
+            transform-origin: top;
+
+            transition: transform 0.8s ease;
+
+            z-index: 3;
+        }
+
+        .envelope-heart {
+            position: absolute;
+
+            z-index: 4;
+
+            top: 48px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 28px;
+
+            transition: opacity 0.4s ease;
+        }
+
+        .open-text {
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            color: #a76d83;
+
+            letter-spacing: 1px;
+        }
+
+        .envelope-container.open .flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope-container.open .envelope-heart {
+            opacity: 0;
+        }
+
+        /* ========================================
+           LETTER
+        ======================================== */
+
+        .letter {
+            background: rgba(255, 255, 255, 0.82);
+
+            border: 1px solid rgba(201, 153, 171, 0.25);
+
+            border-radius: 25px;
+
+            padding: 40px 34px;
+
+            box-shadow:
+                0 20px 60px rgba(114, 70, 87, 0.10),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            animation: fadeUp 0.9s ease forwards;
+        }
+
+        /* ========================================
+           BOUTON RETOUR
+        ======================================== */
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 6px;
+
+            margin: 0 auto 28px;
+
+            background: transparent;
+
+            border: none;
+
+            color: #a47788;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            cursor: pointer;
+
+            padding: 8px 12px;
+
+            border-radius: 20px;
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .back-button:hover {
+            background: rgba(217, 141, 167, 0.10);
+            transform: translateX(-3px);
+        }
+
+        .back-button:active {
+            transform: scale(0.96);
+        }
+
+        /* ========================================
+           TITRE
+        ======================================== */
+
+        .letter-title {
+            font-size: clamp(25px, 7vw, 34px);
+
+            font-weight: normal;
+
+            margin-bottom: 30px;
+
+            color: #573c47;
+
+            line-height: 1.25;
+        }
+
+        /* ========================================
+           TEXTE
+        ======================================== */
+
+        .letter-text {
+            font-size: clamp(16px, 4.5vw, 17px);
+
+            line-height: 1.9;
+
+            color: #66545c;
+
+            text-align: left;
+        }
+
+        .letter-text p {
+            margin-bottom: 21px;
+        }
+
+        .highlight {
+            color: #a8617b;
+            font-style: italic;
+        }
+
+        .signature {
+            text-align: right;
+
+            margin-top: 35px;
+
+            font-style: italic;
+
+            color: #a8617b;
+
+            font-size: 18px;
+        }
+
+        /* ========================================
+           QUESTION
+        ======================================== */
+
+        .question {
+            margin-top: 42px;
+
+            padding-top: 34px;
+
+            border-top:
+                1px solid rgba(180, 125, 146, 0.2);
+        }
+
+        .question h2 {
+            font-size: clamp(24px, 6vw, 34px);
+
+            font-weight: normal;
+
+            color: #513843;
+
+            margin-bottom: 12px;
+
+            line-height: 1.35;
+        }
+
+        .question p {
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            color: #947d86;
+
+            margin-bottom: 25px;
+        }
+
+        /* ========================================
+           BOUTONS
+        ======================================== */
+
+        .buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: none;
+
+            padding: 14px 25px;
+
+            border-radius: 50px;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+
+            min-height: 48px;
+        }
+
+        .yes {
+            background: #d98da7;
+
+            color: white;
+
+            box-shadow:
+                0 8px 20px rgba(181, 103, 132, 0.25);
+        }
+
+        .yes:hover {
+            transform: translateY(-3px);
+
+            background: #ce7897;
+
+            box-shadow:
+                0 12px 25px rgba(181, 103, 132, 0.30);
+        }
+
+        .later {
+            background: #f5e8ed;
+
+            color: #8e6877;
+        }
+
+        .later:hover {
+            transform: translateY(-3px);
+
+            background: #f1dfe6;
+        }
+
+        /* ========================================
+           RÉPONSE
+        ======================================== */
+
+        .final-message {
+            margin-top: 30px;
+
+            font-size: clamp(16px, 4.5vw, 18px);
+
+            line-height: 1.8;
+
+            color: #765e68;
+
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .final-heart {
+            font-size: 50px;
+
+            display: block;
+
+            margin-bottom: 15px;
+
+            animation: heartbeat 1.3s infinite;
+        }
+
+        /* ========================================
+           CŒURS
+        ======================================== */
+
+        .heart {
+            position: fixed;
+
+            bottom: -30px;
+
+            pointer-events: none;
+
+            animation: floatHeart linear forwards;
+
+            z-index: 1;
+
+            opacity: 0.7;
+        }
+
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatHeart {
+
+            from {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.7;
+            }
+
+            to {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        /* ========================================
+           TABLETTE
+        ======================================== */
+
+        @media (max-width: 768px) {
+
+            .page {
+                align-items: flex-start;
+
+                padding-top: 60px;
+                padding-bottom: 50px;
+            }
+
+            .screen {
+                max-width: 620px;
+            }
+
+            .letter {
+                padding: 32px 26px;
+            }
+        }
+
+        /* ========================================
+           TELEPHONE
+        ======================================== */
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding-top: 35px;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .small-text {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .name {
+                font-size: clamp(43px, 15vw, 64px);
+            }
+
+            .nickname {
+                margin-bottom: 30px;
+            }
+
+            .intro-message {
+                line-height: 1.7;
+            }
+
+            .envelope-container {
+                margin-top: 35px;
+            }
+
+            .letter {
+                padding: 25px 20px;
+
+                border-radius: 20px;
+            }
+
+            .back-button {
+                margin-bottom: 22px;
+            }
+
+            .letter-title {
+                margin-bottom: 25px;
+            }
+
+            .letter-text {
+                font-size: 16px;
+                line-height: 1.85;
+            }
+
+            .letter-text p {
+                margin-bottom: 19px;
+            }
+
+            .signature {
+                font-size: 17px;
+                margin-top: 28px;
+            }
+
+            .question {
+                margin-top: 32px;
+                padding-top: 28px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .buttons button {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        /* ========================================
+           PETITS TELEPHONES
+        ======================================== */
+
+        @media (max-width: 380px) {
+
+            .page {
+                padding-top: 25px;
+            }
+
+            .letter {
+                padding: 22px 17px;
+            }
+
+            .letter-text {
+                font-size: 15px;
+            }
+
+            .question h2 {
+                font-size: 23px;
+            }
+
+            .envelope-container {
+                transform: scale(0.9);
+                margin-top: 25px;
+                margin-bottom: 15px;
+            }
+
+            .envelope-container:hover {
+                transform: scale(0.9) translateY(-5px);
+            }
+        }
+
+        /* ========================================
+           ACCESSIBILITÉ
+        ======================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <!-- ========================================
+         ÉCRAN D'ACCUEIL
+    ========================================= -->
+
+    <section
+        id="introScreen"
+        class="screen intro"
+    >
+
+        <div class="small-text">
+            Une petite chose pour toi
+        </div>
+
+        <h1 class="name">
+            Nourine
+        </h1>
+
+        <div class="nickname">
+            ma douceur 🤍
+        </div>
+
+        <p class="intro-message">
+            J'aurais pu simplement t'envoyer un message...
+            <br>
+            Mais cette fois, j'avais envie de faire quelque chose
+            d'un peu différent.
+        </p>
+
+        <div
+            id="envelopeContainer"
+            class="envelope-container"
+            onclick="openLetter()"
+            role="button"
+            tabindex="0"
+            aria-label="Ouvrir la lettre"
+        >
+
+            <div class="envelope">
+
+                <div class="flap"></div>
+
+                <div class="envelope-heart">
+                    🤍
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="open-text">
+            Clique sur l'enveloppe
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         LETTRE
+    ========================================= -->
+
+    <section
+        id="letterScreen"
+        class="screen hidden"
+    >
+
+        <div class="letter">
+
+            <!-- RETOUR -->
+
+            <button
+                class="back-button"
+                onclick="goBack()"
+                type="button"
+            >
+                ← Revenir à l'enveloppe
+            </button>
+
+
+            <h2 class="letter-title">
+                Pour toi, Nourine 🤍
+            </h2>
+
+
+            <div class="letter-text">
+
+                <p>
+                    J'aurais pu simplement t'envoyer un message
+                    pour te dire pardon.
+                </p>
+
+                <p>
+                    Mais cette fois, j'avais envie de faire quelque
+                    chose de différent.
+                </p>
+
+                <p>
+                    Parce que je me rends compte d'une chose...
+                </p>
+
+                <p>
+                    J'ai beaucoup parlé.
+                    J'ai dit certaines choses.
+                    Mais derrière mes paroles,
+                    <span class="highlight">
+                        mes actes n'ont pas toujours suivi.
+                    </span>
+                </p>
+
+                <p>
+                    Et je comprends que, peu importe la beauté de
+                    ce que je peux dire, ce sont finalement mes actes
+                    qui doivent te montrer ce que tu représentes
+                    pour moi.
+                </p>
+
+                <p>
+                    Même des petites choses, comme t'appeler
+                    <span class="highlight">
+                        « coucou toi »
+                    </span>
+                    alors que tu es quelqu'un que je considère
+                    bien plus que ça...
+                </p>
+
+                <p>
+                    Avec le recul, je comprends que ça puisse te
+                    donner l'impression que mes mots ne correspondent
+                    pas vraiment à ce que je ressens.
+                </p>
+
+                <p>
+                    Et pour ça, je suis désolé.
+                </p>
+
+                <p>
+                    Je ne vais pas essayer de me trouver des excuses
+                    ni te promettre mille choses.
+                </p>
+
+                <p>
+                    Je veux simplement te dire que
+                    <span class="highlight">
+                        j'ai compris.
+                    </span>
+                </p>
+
+                <p>
+                    Et si je te demande pardon aujourd'hui,
+                    ce n'est pas parce que je veux effacer ce que
+                    j'ai fait avec quelques jolies paroles.
+                </p>
+
+                <p>
+                    C'est parce que j'aimerais avoir l'occasion
+                    de te le montrer autrement.
+                </p>
+
+                <p>
+                    Parce que tu es
+                    <span class="highlight">
+                        ma douceur.
+                    </span>
+                    🤍
+                </p>
+
+                <p>
+                    Et que tu mérites que mes actes parlent enfin
+                    autant que mes paroles.
+                </p>
+
+            </div>
+
+
+            <div class="signature">
+                Avec sincérité 🤍
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <div class="question">
+
+                <h2>
+                    Est-ce que tu peux me pardonner ?
+                </h2>
+
+                <p>
+                    Je te laisse répondre sincèrement.
+                </p>
+
+                <div class="buttons">
+
+                    <button
+                        class="yes"
+                        onclick="forgive()"
+                        type="button"
+                    >
+                        Oui 🤍
+                    </button>
+
+                    <button
+                        class="later"
+                        onclick="needTime()"
+                        type="button"
+                    >
+                        J'ai besoin de temps
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="response"
+                    class="final-message hidden"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+    /* ========================================
+       OUVRIR LA LETTRE
+    ========================================= */
+
+    function openLetter() {
+
+        const envelope =
+            document.getElementById("envelopeContainer");
+
+        const intro =
+            document.getElementById("introScreen");
+
+        const letter =
+            document.getElementById("letterScreen");
+
+        envelope.classList.add("open");
+
+        createHearts(12);
+
+        setTimeout(() => {
+
+            intro.classList.add("hidden");
+
+            letter.classList.remove("hidden");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }, 900);
+    }
+
+
+    /* ========================================
+       REVENIR À L'ENVELOPPE
+    ========================================= */
+
+    function goBack() {
+
+        const intro =
+            document.getElementById("introScreen");
+
+        const letter =
+            document.getElementById("letterScreen");
+
+        const envelope =
+            document.getElementById("envelopeContainer");
+
+        letter.classList.add("hidden");
+
+        intro.classList.remove("hidden");
+
+        envelope.classList.remove("open");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+    /* ========================================
+       RÉPONSE : OUI
+    ========================================= */
+
+    function forgive() {
+
+        const response =
+            document.getElementById("response");
+
+        response.innerHTML = `
+            <span class="final-heart">🤍</span>
+
+            Merci de me laisser cette chance.
+
+            <br><br>
+
+            Maintenant, à moi de faire en sorte
+            que mes actes parlent pour moi.
+        `;
+
+        response.classList.remove("hidden");
+
+        createHearts(35);
+    }
+
+
+    /* ========================================
+       RÉPONSE : BESOIN DE TEMPS
+    ========================================= */
+
+    function needTime() {
+
+        const response =
+            document.getElementById("response");
+
+        response.innerHTML = `
+            <span class="final-heart">🤍</span>
+
+            Je comprends.
+
+            <br><br>
+
+            Prends le temps dont tu as besoin.
+            Je ne t'en voudrai pas.
+        `;
+
+        response.classList.remove("hidden");
+
+        createHearts(8);
+    }
+
+
+    /* ========================================
+       CRÉER DES CŒURS
+    ========================================= */
+
+    function createHearts(number) {
+
+        const symbols = [
+            "🤍",
+            "♡",
+            "♥",
+            "✦"
+        ];
+
+        for (let i = 0; i < number; i++) {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.textContent =
+                symbols[
+                    Math.floor(
+                        Math.random() * symbols.length
+                    )
+                ];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (12 + Math.random() * 20) + "px";
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 5) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+    }
+
+
+    /* ========================================
+       OUVERTURE AVEC LE CLAVIER
+       ======================================== */
+
+    document
+        .getElementById("envelopeContainer")
+        .addEventListener("keydown", function(event) {
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+
+                event.preventDefault();
+
+                openLetter();
+            }
+        });
+
+
+    /* ========================================
+       PETITS CŒURS EN ARRIÈRE-PLAN
+    ========================================= */
+
+    setInterval(() => {
+
+        if (!document.hidden) {
+            createHearts(1);
+        }
+
+    }, 2200);
+
+</script>
+
+</body>
+</html>
