@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0b0810">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0b0810"
+    >
 
     <title>Pour Nourine 🤍</title>
 
+
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             min-height: 100vh;
             min-height: 100dvh;
+
             overflow-x: hidden;
 
-            font-family: Georgia, "Times New Roman", serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             color: #eee7f2;
 
             background:
@@ -40,48 +60,77 @@
                 #0b0810;
         }
 
+
         button,
         textarea {
             font-family: inherit;
         }
 
+
         button {
             -webkit-tap-highlight-color: transparent;
         }
+
 
         .hidden {
             display: none !important;
         }
 
+
+        /* ==========================================
+           BACKGROUND
+        ========================================== */
+
         .background-glow {
+
             position: fixed;
+
             width: 260px;
             height: 260px;
+
             border-radius: 50%;
+
             filter: blur(90px);
+
             pointer-events: none;
+
             opacity: 0.22;
+
             z-index: 0;
         }
 
+
         .glow-one {
+
             background: #6b3d91;
+
             top: -100px;
             left: -100px;
         }
 
+
         .glow-two {
+
             background: #795637;
+
             right: -120px;
             bottom: -100px;
         }
 
+
+        /* ==========================================
+           PAGE
+        ========================================== */
+
         .page {
+
             min-height: 100vh;
             min-height: 100dvh;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             padding:
@@ -91,247 +140,524 @@
                 max(16px, env(safe-area-inset-left));
 
             position: relative;
+
             z-index: 2;
         }
+
 
         .screen {
+
             width: 100%;
+
             max-width: 680px;
+
             text-align: center;
+
             position: relative;
+
             z-index: 2;
         }
 
-        /* INTRO */
+
+        /* ==========================================
+           INTRO
+        ========================================== */
 
         .intro {
-            animation: fadeUp 1.2s ease forwards;
+
+            animation:
+                fadeUp
+                1.2s
+                ease
+                forwards;
         }
 
+
         .eyebrow {
+
             font-family: Arial, sans-serif;
+
             font-size: 11px;
+
             letter-spacing: 4px;
+
             text-transform: uppercase;
+
             color: #9d82b0;
+
             margin-bottom: 20px;
         }
 
+
         .name {
-            font-size: clamp(48px, 15vw, 82px);
+
+            font-size:
+                clamp(
+                    48px,
+                    15vw,
+                    82px
+                );
+
             font-weight: normal;
+
             line-height: 1;
+
             color: #f1e8f5;
-            text-shadow: 0 0 30px rgba(153, 100, 194, 0.22);
+
+            text-shadow:
+                0 0 30px
+                rgba(
+                    153,
+                    100,
+                    194,
+                    0.22
+                );
+
             margin-bottom: 12px;
         }
 
+
         .nickname {
-            font-size: clamp(22px, 6vw, 30px);
+
+            font-size:
+                clamp(
+                    22px,
+                    6vw,
+                    30px
+                );
+
             font-style: italic;
+
             color: #a77bc1;
+
             margin-bottom: 35px;
         }
 
+
         .intro-text {
+
             max-width: 510px;
+
             margin: auto;
-            font-size: clamp(16px, 4.5vw, 18px);
+
+            font-size:
+                clamp(
+                    16px,
+                    4.5vw,
+                    18px
+                );
+
             line-height: 1.85;
+
             color: #bdb1c4;
         }
 
+
         .intro-text strong {
+
             color: #d9c8e2;
+
             font-weight: normal;
         }
 
-        /* ENVELOPPE */
+
+        /* ==========================================
+           ENVELOPPE
+        ========================================== */
 
         .envelope-area {
-            margin: 45px auto 20px;
+
+            margin:
+                45px
+                auto
+                20px;
+
             width: 200px;
+
             height: 145px;
+
             cursor: pointer;
+
             position: relative;
-            transition: transform .3s ease;
+
+            transition:
+                transform
+                .3s
+                ease;
         }
+
 
         .envelope-area:hover {
-            transform: translateY(-6px);
+
+            transform:
+                translateY(-6px);
         }
+
 
         .envelope-area:active {
-            transform: scale(.96);
+
+            transform:
+                scale(.96);
         }
+
 
         .envelope {
+
             width: 200px;
+
             height: 125px;
+
             position: absolute;
+
             bottom: 0;
+
             background: #25182d;
-            border: 1px solid #4b3158;
+
+            border:
+                1px
+                solid
+                #4b3158;
+
             border-radius: 6px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, .45);
+
+            box-shadow:
+                0 20px 45px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .45
+                );
         }
 
+
         .envelope::after {
+
             content: "";
+
             position: absolute;
+
             inset: 0;
 
             background:
                 linear-gradient(
                     135deg,
                     transparent 49%,
-                    rgba(135, 89, 159, .35) 50%,
+                    rgba(
+                        135,
+                        89,
+                        159,
+                        .35
+                    ) 50%,
                     transparent 51%
                 );
 
             opacity: .7;
         }
 
+
         .flap {
+
             position: absolute;
+
             width: 0;
             height: 0;
+
             left: 0;
             top: 0;
 
-            border-left: 100px solid transparent;
-            border-right: 100px solid transparent;
-            border-top: 70px solid #362044;
+            border-left:
+                100px
+                solid
+                transparent;
+
+            border-right:
+                100px
+                solid
+                transparent;
+
+            border-top:
+                70px
+                solid
+                #362044;
 
             transform-origin: top;
-            transition: transform .8s ease;
+
+            transition:
+                transform
+                .8s
+                ease;
+
             z-index: 4;
         }
 
+
         .envelope-heart {
+
             position: absolute;
+
             z-index: 5;
+
             left: 50%;
             top: 52px;
-            transform: translateX(-50%);
+
+            transform:
+                translateX(-50%);
+
             font-size: 27px;
 
-            filter: drop-shadow(
-                0 0 12px rgba(153, 91, 194, .6)
-            );
+            filter:
+                drop-shadow(
+                    0 0 12px
+                    rgba(
+                        153,
+                        91,
+                        194,
+                        .6
+                    )
+                );
 
-            transition: opacity .4s ease;
+            transition:
+                opacity
+                .4s
+                ease;
         }
+
 
         .envelope-area.open .flap {
-            transform: rotateX(180deg);
+
+            transform:
+                rotateX(180deg);
         }
 
-        .envelope-area.open .envelope-heart {
+
+        .envelope-area.open
+        .envelope-heart {
+
             opacity: 0;
         }
 
+
         .open-hint {
-            font-family: Arial, sans-serif;
+
+            font-family:
+                Arial,
+                sans-serif;
+
             font-size: 12px;
+
             letter-spacing: 1.5px;
+
             color: #806c88;
         }
 
-        /* LETTRE */
+
+        /* ==========================================
+           LETTER
+        ========================================== */
 
         .letter-card {
+
             background:
                 linear-gradient(
                     145deg,
-                    rgba(30, 21, 36, .96),
-                    rgba(18, 13, 21, .96)
+                    rgba(
+                        30,
+                        21,
+                        36,
+                        .96
+                    ),
+                    rgba(
+                        18,
+                        13,
+                        21,
+                        .96
+                    )
                 );
 
-            border: 1px solid rgba(135, 91, 157, .25);
+            border:
+                1px
+                solid
+                rgba(
+                    135,
+                    91,
+                    157,
+                    .25
+                );
+
             border-radius: 26px;
 
-            padding: 30px 34px 40px;
+            padding:
+                30px
+                34px
+                40px;
 
             box-shadow:
-                0 25px 80px rgba(0, 0, 0, .45),
-                inset 0 1px 0 rgba(255,255,255,.035);
+                0 25px 80px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    .45
+                ),
+                inset
+                0 1px 0
+                rgba(
+                    255,
+                    255,
+                    255,
+                    .035
+                );
 
-            animation: letterAppear .9s ease forwards;
+            animation:
+                letterAppear
+                .9s
+                ease
+                forwards;
+
             text-align: left;
         }
 
-        .back-button {
-            display: block;
-            margin: 0 auto 30px;
 
-            padding: 8px 13px;
+        .back-button {
+
+            display: block;
+
+            margin:
+                0
+                auto
+                30px;
+
+            padding:
+                8px
+                13px;
 
             border: none;
+
             border-radius: 20px;
 
-            background: transparent;
+            background:
+                transparent;
+
             color: #8f7899;
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Arial,
+                sans-serif;
+
             font-size: 13px;
 
             cursor: pointer;
 
             transition:
-                background .25s ease,
-                color .25s ease,
-                transform .25s ease;
+                background
+                .25s
+                ease,
+                color
+                .25s
+                ease,
+                transform
+                .25s
+                ease;
         }
+
 
         .back-button:hover {
-            background: rgba(137, 91, 161, .1);
+
+            background:
+                rgba(
+                    137,
+                    91,
+                    161,
+                    .1
+                );
+
             color: #b28bc2;
-            transform: translateX(-3px);
+
+            transform:
+                translateX(-3px);
         }
 
+
         .letter-title {
+
             text-align: center;
 
-            font-size: clamp(27px, 7vw, 36px);
+            font-size:
+                clamp(
+                    27px,
+                    7vw,
+                    36px
+                );
+
             font-weight: normal;
+
             line-height: 1.25;
 
             color: #f0e6f3;
+
             margin-bottom: 35px;
         }
 
+
         .letter-title span {
+
             color: #a678bd;
         }
 
+
         .letter-text {
-            font-size: clamp(16px, 4.4vw, 18px);
+
+            font-size:
+                clamp(
+                    16px,
+                    4.4vw,
+                    18px
+                );
+
             line-height: 1.95;
+
             color: #c2b7c7;
         }
 
+
         .letter-text p {
+
             margin-bottom: 22px;
         }
 
+
         .highlight {
+
             color: #b58ac5;
+
             font-style: italic;
         }
 
+
         .signature {
+
             text-align: right;
+
             color: #9f7caf;
+
             font-size: 18px;
+
             font-style: italic;
+
             margin-top: 35px;
         }
 
+
         .separator {
+
             width: 70px;
+
             height: 1px;
-            margin: 35px auto;
+
+            margin:
+                35px
+                auto;
 
             background:
                 linear-gradient(
@@ -342,52 +668,81 @@
                 );
         }
 
-        /* QUESTION */
+
+        /* ==========================================
+           QUESTION
+        ========================================== */
 
         .question {
+
             text-align: center;
+
             margin-top: 10px;
         }
 
+
         .question h2 {
-            font-size: clamp(25px, 6vw, 34px);
+
+            font-size:
+                clamp(
+                    25px,
+                    6vw,
+                    34px
+                );
+
             font-weight: normal;
+
             line-height: 1.35;
+
             color: #eee5f0;
+
             margin-bottom: 12px;
         }
 
+
         .question-subtitle {
-            font-family: Arial, sans-serif;
+
+            font-family:
+                Arial,
+                sans-serif;
+
             color: #8f8293;
+
             font-size: 13px;
+
+            line-height: 1.6;
+
             margin-bottom: 27px;
         }
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
 
-        .answer-button {
-            min-height: 50px;
-            padding: 14px 23px;
+        /* ==========================================
+           BOUTON UNIQUE
+        ========================================== */
+
+        .response-button {
+
+            display: block;
+
+            margin:
+                0
+                auto;
+
+            min-height: 52px;
+
+            padding:
+                14px
+                26px;
 
             border-radius: 50px;
-            border: 1px solid transparent;
+
+            border:
+                1px
+                solid
+                #76508b;
 
             cursor: pointer;
-            font-size: 15px;
 
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease,
-                background .25s ease;
-        }
-
-        .forgive-button {
             color: #f5edf7;
 
             background:
@@ -397,93 +752,170 @@
                     #432551
                 );
 
-            border-color: #76508b;
+            box-shadow:
+                0 8px 25px
+                rgba(
+                    91,
+                    52,
+                    112,
+                    .25
+                );
+
+            font-size: 15px;
+
+            transition:
+                transform
+                .25s
+                ease,
+                box-shadow
+                .25s
+                ease;
+        }
+
+
+        .response-button:hover {
+
+            transform:
+                translateY(-3px);
 
             box-shadow:
-                0 8px 25px rgba(91, 52, 112, .25);
+                0 13px 30px
+                rgba(
+                    91,
+                    52,
+                    112,
+                    .4
+                );
         }
 
-        .forgive-button:hover {
-            transform: translateY(-3px);
 
-            box-shadow:
-                0 13px 30px rgba(91, 52, 112, .4);
-        }
-
-        .later-button {
-            color: #bda99a;
-
-            background: rgba(87, 62, 46, .18);
-
-            border-color:
-                rgba(151, 112, 78, .3);
-        }
-
-        .later-button:hover {
-            transform: translateY(-3px);
-            background: rgba(105, 75, 55, .25);
-        }
-
-        /* FORMULAIRE */
+        /* ==========================================
+           FORMULAIRE
+        ========================================== */
 
         .message-form {
-            margin-top: 22px;
+
+            margin-top: 25px;
+
             text-align: left;
 
-            animation: fadeUp .6s ease forwards;
+            animation:
+                fadeUp
+                .6s
+                ease
+                forwards;
         }
 
+
+        .message-intro {
+
+            text-align: center;
+
+            color: #b9aabd;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+        }
+
+
         .message-label {
+
             display: block;
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Arial,
+                sans-serif;
+
             font-size: 12px;
-            letter-spacing: .5px;
 
             color: #a796aa;
 
             margin-bottom: 9px;
         }
 
+
         .message-input {
+
             width: 100%;
-            min-height: 125px;
+
+            min-height: 150px;
 
             resize: vertical;
 
-            padding: 15px 16px;
+            padding:
+                15px
+                16px;
 
             border-radius: 16px;
 
-            border: 1px solid rgba(137, 91, 161, .25);
+            border:
+                1px
+                solid
+                rgba(
+                    137,
+                    91,
+                    161,
+                    .25
+                );
 
             background:
-                rgba(10, 7, 13, .55);
+                rgba(
+                    10,
+                    7,
+                    13,
+                    .55
+                );
 
             color: #eee7f2;
 
             font-size: 16px;
+
             line-height: 1.6;
 
             outline: none;
 
             transition:
-                border-color .25s ease,
-                box-shadow .25s ease;
+                border-color
+                .25s
+                ease,
+                box-shadow
+                .25s
+                ease;
         }
 
+
         .message-input::placeholder {
+
             color: #685e6c;
         }
 
+
         .message-input:focus {
-            border-color: rgba(153, 106, 177, .65);
+
+            border-color:
+                rgba(
+                    153,
+                    106,
+                    177,
+                    .65
+                );
 
             box-shadow:
-                0 0 0 3px rgba(119, 75, 143, .10);
+                0 0 0 3px
+                rgba(
+                    119,
+                    75,
+                    143,
+                    .10
+                );
         }
 
+
         .send-button {
+
             width: 100%;
 
             margin-top: 12px;
@@ -491,6 +923,7 @@
             min-height: 50px;
 
             border: none;
+
             border-radius: 50px;
 
             cursor: pointer;
@@ -507,94 +940,157 @@
             font-size: 15px;
 
             transition:
-                transform .25s ease,
-                opacity .25s ease;
+                transform
+                .25s
+                ease,
+                opacity
+                .25s
+                ease;
         }
+
 
         .send-button:hover {
-            transform: translateY(-2px);
+
+            transform:
+                translateY(-2px);
         }
 
+
         .send-button:disabled {
+
             opacity: .55;
+
             cursor: wait;
         }
 
+
         .cancel-button {
+
             display: block;
 
-            margin: 12px auto 0;
+            margin:
+                12px
+                auto
+                0;
 
             border: none;
-            background: transparent;
+
+            background:
+                transparent;
 
             color: #766a78;
 
             cursor: pointer;
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Arial,
+                sans-serif;
+
             font-size: 12px;
         }
 
-        /* REPONSE */
-
-        .response {
-            margin-top: 30px;
-
-            padding: 25px 20px;
-
-            border-radius: 18px;
-
-            background:
-                rgba(92, 57, 108, .10);
-
-            border:
-                1px solid rgba(132, 91, 151, .15);
-
-            color: #c8bacd;
-
-            font-size: 17px;
-            line-height: 1.8;
-
-            text-align: center;
-
-            animation: fadeUp .7s ease forwards;
-        }
-
-        .response-heart {
-            display: block;
-            font-size: 44px;
-            margin-bottom: 12px;
-
-            animation: heartbeat 1.4s infinite;
-        }
-
-        .success-title {
-            color: #d8c3df;
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        /* ERREUR */
 
         .error-message {
+
             margin-top: 12px;
 
             color: #c28d8d;
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Arial,
+                sans-serif;
+
             font-size: 12px;
 
             text-align: center;
         }
 
-        /* PARTICULES */
+
+        /* ==========================================
+           REPONSE APRES ENVOI
+        ========================================== */
+
+        .response {
+
+            margin-top: 30px;
+
+            padding:
+                25px
+                20px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(
+                    92,
+                    57,
+                    108,
+                    .10
+                );
+
+            border:
+                1px
+                solid
+                rgba(
+                    132,
+                    91,
+                    151,
+                    .15
+                );
+
+            color: #c8bacd;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            text-align: center;
+
+            animation:
+                fadeUp
+                .7s
+                ease
+                forwards;
+        }
+
+
+        .response-heart {
+
+            display: block;
+
+            font-size: 44px;
+
+            margin-bottom: 12px;
+
+            animation:
+                heartbeat
+                1.4s
+                infinite;
+        }
+
+
+        .success-title {
+
+            color: #d8c3df;
+
+            font-size: 22px;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* ==========================================
+           PARTICULES
+        ========================================== */
 
         .particle {
+
             position: fixed;
+
             bottom: -20px;
 
             pointer-events: none;
+
             z-index: 1;
 
             opacity: 0;
@@ -605,48 +1101,74 @@
                 forwards;
         }
 
-        /* ANIMATIONS */
+
+        /* ==========================================
+           ANIMATIONS
+        ========================================== */
 
         @keyframes fadeUp {
+
             from {
+
                 opacity: 0;
-                transform: translateY(25px);
+
+                transform:
+                    translateY(25px);
             }
 
             to {
+
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
 
+
         @keyframes letterAppear {
+
             from {
+
                 opacity: 0;
+
                 transform:
                     translateY(30px)
                     scale(.98);
             }
 
             to {
+
                 opacity: 1;
+
                 transform:
                     translateY(0)
                     scale(1);
             }
         }
 
+
         @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
             }
 
             50% {
-                transform: scale(1.13);
+
+                transform:
+                    scale(1.13);
             }
         }
 
+
         @keyframes particleFloat {
+
             0% {
+
                 transform:
                     translateY(0)
                     rotate(0deg);
@@ -655,10 +1177,12 @@
             }
 
             15% {
+
                 opacity: .55;
             }
 
             100% {
+
                 transform:
                     translateY(-110vh)
                     rotate(360deg);
@@ -667,57 +1191,97 @@
             }
         }
 
-        /* TABLET */
+
+        /* ==========================================
+           TABLET
+        ========================================== */
 
         @media (max-width: 768px) {
+
             .page {
+
                 align-items: flex-start;
+
                 padding-top: 55px;
             }
 
+
             .letter-card {
-                padding: 27px 26px 35px;
+
+                padding:
+                    27px
+                    26px
+                    35px;
             }
         }
 
-        /* MOBILE */
+
+        /* ==========================================
+           MOBILE
+        ========================================== */
 
         @media (max-width: 600px) {
+
             .page {
+
                 padding-top: 35px;
+
                 padding-left: 13px;
+
                 padding-right: 13px;
             }
 
+
             .eyebrow {
+
                 font-size: 9px;
+
                 letter-spacing: 3px;
             }
 
+
             .name {
-                font-size: clamp(47px, 16vw, 65px);
+
+                font-size:
+                    clamp(
+                        47px,
+                        16vw,
+                        65px
+                    );
             }
 
+
             .nickname {
+
                 margin-bottom: 28px;
             }
 
+
             .intro-text {
+
                 line-height: 1.75;
             }
 
+
             .envelope-area {
+
                 margin-top: 35px;
-                transform: scale(.92);
+
+                transform:
+                    scale(.92);
             }
 
+
             .envelope-area:hover {
+
                 transform:
                     scale(.92)
                     translateY(-5px);
             }
 
+
             .letter-card {
+
                 padding:
                     23px
                     19px
@@ -726,100 +1290,157 @@
                 border-radius: 21px;
             }
 
+
             .back-button {
+
                 margin-bottom: 24px;
             }
 
+
             .letter-title {
+
                 margin-bottom: 27px;
             }
 
+
             .letter-text {
+
                 font-size: 16px;
+
                 line-height: 1.87;
             }
 
+
             .letter-text p {
+
                 margin-bottom: 19px;
             }
 
+
             .signature {
+
                 margin-top: 28px;
+
                 font-size: 17px;
             }
 
+
             .separator {
-                margin: 30px auto;
+
+                margin:
+                    30px
+                    auto;
             }
 
+
             .question h2 {
+
                 font-size: 25px;
             }
 
-            .buttons {
-                flex-direction: column;
-                align-items: center;
+
+            .response-button {
+
+                width: 100%;
+
+                max-width: 310px;
             }
 
-            .answer-button {
-                width: 100%;
-                max-width: 290px;
+
+            .message-input {
+
+                min-height: 160px;
+
+                font-size: 16px;
             }
+
 
             .response {
+
                 font-size: 16px;
             }
         }
 
-        /* PETITS TELEPHONES */
+
+        /* ==========================================
+           PETITS TELEPHONES
+        ========================================== */
 
         @media (max-width: 380px) {
+
             .page {
+
                 padding-top: 25px;
             }
 
+
             .letter-card {
+
                 padding:
                     21px
                     16px
                     27px;
             }
 
+
             .letter-text {
+
                 font-size: 15px;
+
                 line-height: 1.82;
             }
 
+
             .question h2 {
+
                 font-size: 23px;
             }
         }
 
+
+        /* ==========================================
+           REDUCTION ANIMATIONS
+        ========================================== */
+
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-                scroll-behavior: auto !important;
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+
+                scroll-behavior:
+                    auto !important;
             }
         }
+
     </style>
+
 </head>
 
 
 <body>
 
+
     <div class="background-glow glow-one"></div>
+
     <div class="background-glow glow-two"></div>
 
 
     <main class="page">
 
-        <!-- ===============================
-             INTRO
-        ================================ -->
+
+        <!-- ==========================================
+             ECRAN D'ACCUEIL
+        =========================================== -->
 
         <section
             id="introScreen"
@@ -830,22 +1451,29 @@
                 Une petite chose pour toi
             </div>
 
+
             <h1 class="name">
                 Nourine
             </h1>
+
 
             <div class="nickname">
                 ma douceur 🤍
             </div>
 
+
             <p class="intro-text">
+
                 J'aurais pu simplement t'envoyer un message...
+
                 <br><br>
+
                 Mais cette fois,
                 <strong>
                     j'avais envie de faire quelque chose
                     de différent.
                 </strong>
+
             </p>
 
 
@@ -870,6 +1498,7 @@
 
             </div>
 
+
             <div class="open-hint">
                 Touche l'enveloppe
             </div>
@@ -877,9 +1506,10 @@
         </section>
 
 
-        <!-- ===============================
+
+        <!-- ==========================================
              LETTRE
-        ================================ -->
+        =========================================== -->
 
         <section
             id="letterScreen"
@@ -887,6 +1517,7 @@
         >
 
             <article class="letter-card">
+
 
                 <button
                     type="button"
@@ -898,119 +1529,173 @@
 
 
                 <h2 class="letter-title">
+
                     Pour toi,
                     <span>Nourine</span> 🤍
+
                 </h2>
 
 
                 <div class="letter-text">
 
+
                     <p>
+
                         J'aurais pu simplement t'envoyer un message
                         pour te dire pardon.
+
                     </p>
 
+
                     <p>
+
                         Mais cette fois, j'avais envie de faire
                         quelque chose de différent.
+
                     </p>
 
+
                     <p>
+
                         Parce que je me rends compte d'une chose...
+
                     </p>
 
+
                     <p>
+
                         J'ai beaucoup parlé.
                         J'ai dit certaines choses.
                         Mais derrière mes paroles,
                         <span class="highlight">
                             mes actes n'ont pas toujours suivi.
                         </span>
+
                     </p>
 
+
                     <p>
+
                         Et je comprends aujourd'hui que peu importe
                         la beauté de ce que je peux dire,
                         ce sont finalement mes actes qui doivent
                         te montrer ce que tu représentes pour moi.
+
                     </p>
 
+
                     <p>
+
                         Peut-être que certaines petites choses
                         peuvent sembler insignifiantes.
                         Un mot, une façon de t'appeler,
                         une promesse que je ne concrétise pas...
+
                     </p>
 
+
                     <p>
+
                         Mais accumulées,
                         ces petites choses peuvent finir
                         par faire beaucoup.
+
                     </p>
 
+
                     <p>
+
                         Même t'appeler
                         <span class="highlight">
                             « coucou toi »
                         </span>
                         alors que tu es quelqu'un que je considère
                         bien plus que ça...
+
                     </p>
 
+
                     <p>
+
                         Avec le recul, je comprends que ça puisse
                         te donner l'impression que mes mots
                         ne correspondent pas toujours à ce que
                         je ressens réellement.
+
                     </p>
 
+
                     <p>
+
                         Et pour ça,
                         <span class="highlight">
                             je suis désolé.
                         </span>
+
                     </p>
 
+
                     <p>
+
                         Je ne veux pas essayer de me trouver
                         des excuses.
+
                     </p>
 
+
                     <p>
+
                         Je ne veux pas non plus te faire
                         mille promesses juste pour que
                         tu me pardonnes.
+
                     </p>
 
+
                     <p>
+
                         Je veux simplement te dire que
                         <span class="highlight">
                             j'ai compris.
                         </span>
+
                     </p>
 
+
                     <p>
+
                         Cette fois, je ne veux pas te convaincre
                         avec des mots.
+
                     </p>
 
+
                     <p>
+
                         J'aimerais simplement avoir
                         l'occasion de te le montrer autrement.
+
                     </p>
 
+
                     <p>
+
                         Parce que tu es
                         <span class="highlight">
                             ma douceur.
                         </span>
                         🤍
+
                     </p>
 
+
                     <p>
+
                         Et tu mérites que mes actes parlent
                         enfin autant que mes paroles.
+
                     </p>
+
 
                 </div>
 
@@ -1023,44 +1708,46 @@
                 <div class="separator"></div>
 
 
-                <!-- ===============================
+                <!-- ======================================
                      QUESTION
-                ================================ -->
+                ======================================= -->
 
                 <div class="question">
+
 
                     <h2>
                         Alors Nourine...
                     </h2>
 
+
                     <h2>
                         Est-ce que tu acceptes mes excuses ?
                     </h2>
 
+
                     <p class="question-subtitle">
-                        Je te laisse répondre sincèrement.
+
+                        Je ne veux pas choisir ta réponse
+                        à ta place.
+
+                        <br>
+
+                        Dis-moi simplement ce que tu ressens,
+                        sincèrement.
+
                     </p>
 
 
-                    <div
-                        id="buttons"
-                        class="buttons"
-                    >
+                    <!-- UN SEUL BOUTON -->
+
+                    <div id="responseButtonContainer">
 
                         <button
                             type="button"
-                            class="answer-button forgive-button"
-                            onclick="chooseAnswer('Oui, je te pardonne 🤍')"
+                            class="response-button"
+                            onclick="showResponseForm()"
                         >
-                            🤍 Oui, je te pardonne
-                        </button>
-
-                        <button
-                            type="button"
-                            class="answer-button later-button"
-                            onclick="chooseAnswer('Pas encore 🌙')"
-                        >
-                            🌙 Pas encore
+                            💌 J'ai quelque chose à te répondre
                         </button>
 
                     </div>
@@ -1075,31 +1762,47 @@
                         method="POST"
                     >
 
-                        <input
-                            type="hidden"
-                            name="reponse"
-                            id="selectedAnswer"
-                        >
 
                         <input
                             type="hidden"
                             name="page"
-                            value="Pour Nourine"
+                            value="Message pour Nourine"
                         >
+
 
                         <label
                             class="message-label"
                             for="message"
                         >
-                            Si tu veux me laisser quelques mots...
+                            Ta réponse
                         </label>
+
+
+                        <div class="message-intro">
+
+                            Tu peux me dire ce que tu veux.
+                            <br>
+
+                            Si tu me pardonnes,
+                            si tu as besoin de temps,
+                            si tu es encore blessée...
+                            <br>
+
+                            <em>
+                                Je veux simplement avoir
+                                ta vraie réponse.
+                            </em>
+
+                        </div>
+
 
                         <textarea
                             id="message"
                             name="message"
                             class="message-input"
-                            placeholder="Écris-moi ce que tu veux, même quelques mots seulement..."
+                            placeholder="Écris-moi ce que tu as sur le cœur..."
                             maxlength="2000"
+                            required
                         ></textarea>
 
 
@@ -1117,16 +1820,18 @@
                             class="cancel-button"
                             onclick="cancelResponse()"
                         >
-                            ← Changer ma réponse
+                            ← Je veux encore réfléchir
                         </button>
+
 
                         <div
                             id="errorMessage"
                             class="error-message hidden"
                         >
-                            Une erreur est survenue. Vérifie ta connexion
-                            puis réessaie.
+                            Une erreur est survenue.
+                            Vérifie ta connexion puis réessaie.
                         </div>
+
 
                     </form>
 
@@ -1138,191 +1843,281 @@
                         class="response hidden"
                     ></div>
 
+
                 </div>
+
 
             </article>
 
+
         </section>
+
 
     </main>
 
 
+
     <script>
 
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
 
-        let selectedResponse = "";
-
-
-        /* =====================================================
+        /* ==========================================
            OUVRIR LA LETTRE
-        ===================================================== */
+        =========================================== */
 
         function openLetter() {
 
+
             const envelope =
-                document.getElementById("envelopeArea");
+                document.getElementById(
+                    "envelopeArea"
+                );
+
 
             const intro =
-                document.getElementById("introScreen");
+                document.getElementById(
+                    "introScreen"
+                );
+
 
             const letter =
-                document.getElementById("letterScreen");
+                document.getElementById(
+                    "letterScreen"
+                );
 
 
             envelope.classList.add("open");
+
 
             createParticles(15);
 
 
             setTimeout(() => {
 
-                intro.classList.add("hidden");
 
-                letter.classList.remove("hidden");
+                intro.classList.add(
+                    "hidden"
+                );
+
+
+                letter.classList.remove(
+                    "hidden"
+                );
+
 
                 window.scrollTo({
+
                     top: 0,
+
                     behavior: "smooth"
+
                 });
+
 
             }, 900);
 
         }
 
 
-        /* =====================================================
-           RETOUR
-        ===================================================== */
+
+        /* ==========================================
+           RETOUR A L'ENVELOPPE
+        =========================================== */
 
         function goBack() {
 
+
             const intro =
-                document.getElementById("introScreen");
+                document.getElementById(
+                    "introScreen"
+                );
+
 
             const letter =
-                document.getElementById("letterScreen");
+                document.getElementById(
+                    "letterScreen"
+                );
+
 
             const envelope =
-                document.getElementById("envelopeArea");
+                document.getElementById(
+                    "envelopeArea"
+                );
+
 
             const form =
-                document.getElementById("responseForm");
+                document.getElementById(
+                    "responseForm"
+                );
+
 
             const response =
-                document.getElementById("response");
+                document.getElementById(
+                    "response"
+                );
 
 
-            letter.classList.add("hidden");
+            const buttonContainer =
+                document.getElementById(
+                    "responseButtonContainer"
+                );
 
-            intro.classList.remove("hidden");
 
-            envelope.classList.remove("open");
+            letter.classList.add(
+                "hidden"
+            );
 
-            form.classList.add("hidden");
 
-            response.classList.add("hidden");
+            intro.classList.remove(
+                "hidden"
+            );
+
+
+            envelope.classList.remove(
+                "open"
+            );
+
+
+            form.classList.add(
+                "hidden"
+            );
+
+
+            response.classList.add(
+                "hidden"
+            );
+
+
+            buttonContainer.classList.remove(
+                "hidden"
+            );
+
 
             response.innerHTML = "";
 
-            selectedResponse = "";
+
+            document.getElementById(
+                "message"
+            ).value = "";
 
 
             window.scrollTo({
+
                 top: 0,
+
                 behavior: "smooth"
+
             });
 
         }
 
 
-        /* =====================================================
-           CHOIX DE REPONSE
-        ===================================================== */
 
-        function chooseAnswer(answer) {
+        /* ==========================================
+           AFFICHER LE FORMULAIRE
+        =========================================== */
 
-            selectedResponse = answer;
-
-
-            document.getElementById(
-                "selectedAnswer"
-            ).value = answer;
+        function showResponseForm() {
 
 
-            document.getElementById(
-                "buttons"
-            ).classList.add("hidden");
+            const buttonContainer =
+                document.getElementById(
+                    "responseButtonContainer"
+                );
+
+
+            const form =
+                document.getElementById(
+                    "responseForm"
+                );
+
+
+            buttonContainer.classList.add(
+                "hidden"
+            );
+
+
+            form.classList.remove(
+                "hidden"
+            );
+
+
+            setTimeout(() => {
+
+
+                document.getElementById(
+                    "message"
+                ).focus();
+
+
+            }, 200);
+
+
+        }
+
+
+
+        /* ==========================================
+           ANNULER LA REPONSE
+        =========================================== */
+
+        function cancelResponse() {
 
 
             document.getElementById(
                 "responseForm"
-            ).classList.remove("hidden");
+            ).classList.add(
+                "hidden"
+            );
 
 
             document.getElementById(
-                "message"
-            ).focus();
+                "responseButtonContainer"
+            ).classList.remove(
+                "hidden"
+            );
 
 
-            createParticles(
-                answer.includes("pardonne")
-                    ? 20
-                    : 8
+            document.getElementById(
+                "errorMessage"
+            ).classList.add(
+                "hidden"
             );
 
         }
 
 
-        /* =====================================================
-           ANNULER / CHANGER DE REPONSE
-        ===================================================== */
 
-        function cancelResponse() {
-
-            document.getElementById(
-                "responseForm"
-            ).classList.add("hidden");
-
-
-            document.getElementById(
-                "buttons"
-            ).classList.remove("hidden");
-
-
-            document.getElementById(
-                "errorMessage"
-            ).classList.add("hidden");
-
-        }
-
-
-        /* =====================================================
+        /* ==========================================
            ENVOI FORMSPREE
-        ===================================================== */
+        =========================================== */
 
         document
-            .getElementById("responseForm")
+            .getElementById(
+                "responseForm"
+            )
             .addEventListener(
                 "submit",
                 async function(event) {
 
+
                     event.preventDefault();
 
 
-                    const form = event.target;
+                    const form =
+                        event.target;
+
 
                     const sendButton =
                         document.getElementById(
                             "sendButton"
                         );
 
+
                     const error =
                         document.getElementById(
                             "errorMessage"
                         );
+
 
                     const response =
                         document.getElementById(
@@ -1330,9 +2125,14 @@
                         );
 
 
-                    error.classList.add("hidden");
+                    error.classList.add(
+                        "hidden"
+                    );
 
-                    sendButton.disabled = true;
+
+                    sendButton.disabled =
+                        true;
+
 
                     sendButton.textContent =
                         "Envoi en cours...";
@@ -1340,30 +2140,41 @@
 
                     try {
 
+
                         const formData =
-                            new FormData(form);
+                            new FormData(
+                                form
+                            );
 
 
                         const result =
                             await fetch(
                                 form.action,
                                 {
-                                    method: "POST",
 
-                                    body: formData,
+                                    method:
+                                        "POST",
+
+                                    body:
+                                        formData,
 
                                     headers: {
+
                                         "Accept":
                                             "application/json"
+
                                     }
+
                                 }
                             );
 
 
                         if (!result.ok) {
+
                             throw new Error(
                                 "Erreur Formspree"
                             );
+
                         }
 
 
@@ -1375,26 +2186,20 @@
                         response.innerHTML = `
 
                             <span class="response-heart">
-                                ${
-                                    selectedResponse.includes(
-                                        "pardonne"
-                                    )
-                                    ? "🤍"
-                                    : "🌙"
-                                }
+                                🤍
                             </span>
 
                             <div class="success-title">
                                 Merci pour ta réponse.
                             </div>
 
-                            Je l'ai reçue.
+                            Je l'ai bien reçue.
 
                             <br><br>
 
-                            Et quelle que soit ta réponse,
-                            je voulais simplement que tu saches
-                            que je suis sincèrement désolé.
+                            Peu importe ce que tu as écrit,
+                            merci d'avoir pris le temps
+                            de me répondre sincèrement.
 
                         `;
 
@@ -1407,15 +2212,24 @@
                         createParticles(35);
 
 
-                    } catch (error) {
+                    }
 
-                        console.error(error);
+                    catch (errorObject) {
+
+
+                        console.error(
+                            errorObject
+                        );
+
 
                         error.classList.remove(
                             "hidden"
                         );
 
-                        sendButton.disabled = false;
+
+                        sendButton.disabled =
+                            false;
+
 
                         sendButton.textContent =
                             "Envoyer ma réponse 🤍";
@@ -1426,23 +2240,33 @@
             );
 
 
-        /* =====================================================
+
+        /* ==========================================
            CLAVIER
-        ===================================================== */
+        =========================================== */
 
         document
-            .getElementById("envelopeArea")
+            .getElementById(
+                "envelopeArea"
+            )
             .addEventListener(
                 "keydown",
                 function(event) {
 
+
                     if (
+
                         event.key === "Enter"
+
                         ||
+
                         event.key === " "
+
                     ) {
 
+
                         event.preventDefault();
+
 
                         openLetter();
 
@@ -1452,25 +2276,34 @@
             );
 
 
-        /* =====================================================
+
+        /* ==========================================
            PARTICULES
-        ===================================================== */
+        =========================================== */
 
         function createParticles(number) {
 
+
             const symbols = [
+
                 "✦",
                 "✧",
                 "♡",
                 "🤍"
+
             ];
 
 
             for (
+
                 let i = 0;
+
                 i < number;
+
                 i++
+
             ) {
+
 
                 const particle =
                     document.createElement(
@@ -1499,23 +2332,29 @@
                 particle.style.fontSize =
                     (
                         10
-                        + Math.random() * 17
+                        +
+                        Math.random() * 17
                     )
-                    + "px";
+                    +
+                    "px";
 
 
                 particle.style.color =
                     Math.random() > .5
+
                         ? "#a678bd"
+
                         : "#a8896d";
 
 
                 particle.style.animationDuration =
                     (
                         5
-                        + Math.random() * 5
+                        +
+                        Math.random() * 5
                     )
-                    + "s";
+                    +
+                    "s";
 
 
                 document.body.appendChild(
@@ -1534,19 +2373,27 @@
         }
 
 
-        /* =====================================================
+
+        /* ==========================================
            PARTICULES D'AMBIANCE
-        ===================================================== */
+        =========================================== */
 
         setInterval(() => {
 
+
             if (!document.hidden) {
+
                 createParticles(1);
+
             }
+
 
         }, 2500);
 
+
     </script>
 
+
 </body>
+
 </html>
