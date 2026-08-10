@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#fff8fb">
+
+    <meta name="theme-color" content="#0b0810">
 
     <title>Pour Nourine 🤍</title>
 
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -21,32 +27,78 @@
         body {
             min-height: 100vh;
             min-height: 100dvh;
-            font-family: Georgia, "Times New Roman", serif;
+
+            overflow-x: hidden;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            color: #eee7f2;
 
             background:
                 radial-gradient(
-                    circle at 10% 10%,
-                    rgba(255, 220, 232, 0.8),
+                    circle at 15% 10%,
+                    rgba(91, 48, 125, 0.25),
                     transparent 35%
                 ),
                 radial-gradient(
-                    circle at 90% 90%,
-                    rgba(238, 220, 250, 0.7),
+                    circle at 85% 90%,
+                    rgba(108, 71, 43, 0.18),
                     transparent 35%
                 ),
-                #fff8fb;
-
-            color: #3d3035;
-            overflow-x: hidden;
+                #0b0810;
         }
 
         button {
             font-family: inherit;
         }
 
-        /* ========================================
-           PAGE
-        ======================================== */
+        .hidden {
+            display: none !important;
+        }
+
+
+        /* =====================================================
+           BACKGROUND
+        ===================================================== */
+
+        .background-glow {
+            position: fixed;
+
+            width: 260px;
+            height: 260px;
+
+            border-radius: 50%;
+
+            filter: blur(90px);
+
+            pointer-events: none;
+
+            opacity: 0.22;
+
+            z-index: 0;
+        }
+
+        .glow-one {
+            background: #6b3d91;
+
+            top: -100px;
+            left: -100px;
+        }
+
+        .glow-two {
+            background: #795637;
+
+            right: -120px;
+            bottom: -100px;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
 
         .page {
             min-height: 100vh;
@@ -57,124 +109,155 @@
             align-items: center;
 
             padding:
-                max(30px, env(safe-area-inset-top))
-                max(18px, env(safe-area-inset-right))
-                max(30px, env(safe-area-inset-bottom))
-                max(18px, env(safe-area-inset-left));
+                max(35px, env(safe-area-inset-top))
+                max(16px, env(safe-area-inset-right))
+                max(40px, env(safe-area-inset-bottom))
+                max(16px, env(safe-area-inset-left));
 
             position: relative;
+
+            z-index: 2;
         }
 
         .screen {
             width: 100%;
             max-width: 680px;
+
             text-align: center;
+
             position: relative;
+
             z-index: 2;
         }
 
-        .hidden {
-            display: none !important;
-        }
 
-        /* ========================================
+        /* =====================================================
            INTRO
-        ======================================== */
+        ===================================================== */
 
         .intro {
             animation: fadeUp 1.2s ease forwards;
         }
 
-        .small-text {
+        .eyebrow {
             font-family: Arial, sans-serif;
-            font-size: 12px;
-            letter-spacing: 3px;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
             text-transform: uppercase;
-            color: #a98b96;
-            margin-bottom: 18px;
+
+            color: #9d82b0;
+
+            margin-bottom: 20px;
         }
 
         .name {
-            font-size: clamp(42px, 12vw, 76px);
+            font-size: clamp(48px, 15vw, 82px);
+
             font-weight: normal;
-            color: #4b343e;
-            line-height: 1.05;
-            margin-bottom: 8px;
+
+            line-height: 1;
+
+            color: #f1e8f5;
+
+            text-shadow:
+                0 0 30px rgba(153, 100, 194, 0.22);
+
+            margin-bottom: 12px;
         }
 
         .nickname {
-            font-size: clamp(20px, 6vw, 29px);
+            font-size: clamp(22px, 6vw, 30px);
+
             font-style: italic;
-            color: #b77c91;
-            margin-bottom: 38px;
+
+            color: #a77bc1;
+
+            margin-bottom: 35px;
         }
 
-        .intro-message {
-            font-size: clamp(16px, 4.5vw, 18px);
-            line-height: 1.8;
-            max-width: 500px;
+        .intro-text {
+            max-width: 510px;
+
             margin: auto;
-            color: #66545c;
+
+            font-size: clamp(16px, 4.5vw, 18px);
+
+            line-height: 1.85;
+
+            color: #bdb1c4;
         }
 
-        /* ========================================
-           ENVELOPPE
-        ======================================== */
+        .intro-text strong {
+            color: #d9c8e2;
 
-        .envelope-container {
-            margin: 42px auto 25px;
+            font-weight: normal;
+        }
 
-            width: 190px;
-            height: 135px;
 
-            position: relative;
+        /* =====================================================
+           ENVELOPE
+        ===================================================== */
+
+        .envelope-area {
+            margin: 45px auto 20px;
+
+            width: 200px;
+            height: 145px;
+
             cursor: pointer;
 
-            transition: transform 0.3s ease;
+            position: relative;
+
+            transition: transform .3s ease;
 
             -webkit-tap-highlight-color: transparent;
         }
 
-        .envelope-container:hover {
-            transform: translateY(-5px);
+        .envelope-area:hover {
+            transform: translateY(-6px);
         }
 
-        .envelope-container:active {
-            transform: scale(0.96);
+        .envelope-area:active {
+            transform: scale(.96);
         }
 
         .envelope {
-            width: 190px;
-            height: 120px;
+            width: 200px;
+            height: 125px;
 
             position: absolute;
+
             bottom: 0;
 
-            background: #e8a9bd;
+            background: #25182d;
 
-            border-radius: 5px;
+            border: 1px solid #4b3158;
+
+            border-radius: 6px;
 
             box-shadow:
-                0 15px 35px rgba(145, 89, 109, 0.2);
+                0 20px 45px rgba(0, 0, 0, .45);
         }
 
-        .envelope::before {
+        .envelope::after {
             content: "";
 
             position: absolute;
+
             inset: 0;
 
-            background: #d991aa;
+            background:
+                linear-gradient(
+                    135deg,
+                    transparent 49%,
+                    rgba(135, 89, 159, .35) 50%,
+                    transparent 51%
+                );
 
-            clip-path: polygon(
-                0 0,
-                50% 55%,
-                100% 0,
-                100% 100%,
-                0 100%
-            );
-
-            border-radius: 5px;
+            opacity: .7;
         }
 
         .flap {
@@ -183,94 +266,100 @@
             width: 0;
             height: 0;
 
-            border-left: 95px solid transparent;
-            border-right: 95px solid transparent;
-            border-top: 65px solid #f0b7c8;
-
-            top: 0;
             left: 0;
+            top: 0;
+
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 70px solid #362044;
 
             transform-origin: top;
 
-            transition: transform 0.8s ease;
+            transition: transform .8s ease;
 
-            z-index: 3;
+            z-index: 4;
         }
 
         .envelope-heart {
             position: absolute;
 
-            z-index: 4;
+            z-index: 5;
 
-            top: 48px;
             left: 50%;
+            top: 52px;
 
             transform: translateX(-50%);
 
-            font-size: 28px;
+            font-size: 27px;
 
-            transition: opacity 0.4s ease;
+            filter:
+                drop-shadow(
+                    0 0 12px rgba(153, 91, 194, .6)
+                );
+
+            transition: opacity .4s ease;
         }
 
-        .open-text {
-            font-family: Arial, sans-serif;
-
-            font-size: 13px;
-
-            color: #a76d83;
-
-            letter-spacing: 1px;
-        }
-
-        .envelope-container.open .flap {
+        .envelope-area.open .flap {
             transform: rotateX(180deg);
         }
 
-        .envelope-container.open .envelope-heart {
+        .envelope-area.open .envelope-heart {
             opacity: 0;
         }
 
-        /* ========================================
-           LETTER
-        ======================================== */
+        .open-hint {
+            font-family: Arial, sans-serif;
 
-        .letter {
-            background: rgba(255, 255, 255, 0.82);
+            font-size: 12px;
 
-            border: 1px solid rgba(201, 153, 171, 0.25);
+            letter-spacing: 1.5px;
 
-            border-radius: 25px;
-
-            padding: 40px 34px;
-
-            box-shadow:
-                0 20px 60px rgba(114, 70, 87, 0.10),
-                inset 0 1px 0 rgba(255,255,255,0.8);
-
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-
-            animation: fadeUp 0.9s ease forwards;
+            color: #806c88;
         }
 
-        /* ========================================
-           BOUTON RETOUR
-        ======================================== */
+
+        /* =====================================================
+           LETTER
+        ===================================================== */
+
+        .letter-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(30, 21, 36, .96),
+                    rgba(18, 13, 21, .96)
+                );
+
+            border: 1px solid rgba(135, 91, 157, .25);
+
+            border-radius: 26px;
+
+            padding: 30px 34px 40px;
+
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, .45),
+                inset 0 1px 0 rgba(255,255,255,.035);
+
+            animation: letterAppear .9s ease forwards;
+
+            text-align: left;
+        }
 
         .back-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
 
-            gap: 6px;
+            margin: 0 auto 30px;
 
-            margin: 0 auto 28px;
-
-            background: transparent;
+            padding: 8px 13px;
 
             border: none;
 
-            color: #a47788;
+            border-radius: 20px;
+
+            background: transparent;
+
+            color: #8f7899;
 
             font-family: Arial, sans-serif;
 
@@ -278,115 +367,130 @@
 
             cursor: pointer;
 
-            padding: 8px 12px;
-
-            border-radius: 20px;
-
             transition:
-                background 0.25s ease,
-                transform 0.25s ease;
-
-            -webkit-tap-highlight-color: transparent;
+                background .25s ease,
+                color .25s ease,
+                transform .25s ease;
         }
 
         .back-button:hover {
-            background: rgba(217, 141, 167, 0.10);
+            background: rgba(137, 91, 161, .1);
+
+            color: #b28bc2;
+
             transform: translateX(-3px);
         }
 
-        .back-button:active {
-            transform: scale(0.96);
-        }
-
-        /* ========================================
-           TITRE
-        ======================================== */
-
         .letter-title {
-            font-size: clamp(25px, 7vw, 34px);
+            text-align: center;
+
+            font-size: clamp(27px, 7vw, 36px);
 
             font-weight: normal;
 
-            margin-bottom: 30px;
-
-            color: #573c47;
-
             line-height: 1.25;
+
+            color: #f0e6f3;
+
+            margin-bottom: 35px;
         }
 
-        /* ========================================
-           TEXTE
-        ======================================== */
+        .letter-title span {
+            color: #a678bd;
+        }
+
+
+        /* =====================================================
+           LETTER TEXT
+        ===================================================== */
 
         .letter-text {
-            font-size: clamp(16px, 4.5vw, 17px);
+            font-size: clamp(16px, 4.4vw, 18px);
 
-            line-height: 1.9;
+            line-height: 1.95;
 
-            color: #66545c;
-
-            text-align: left;
+            color: #c2b7c7;
         }
 
         .letter-text p {
-            margin-bottom: 21px;
+            margin-bottom: 22px;
         }
 
         .highlight {
-            color: #a8617b;
+            color: #b58ac5;
+
             font-style: italic;
+        }
+
+        .brown {
+            color: #b59473;
         }
 
         .signature {
             text-align: right;
 
-            margin-top: 35px;
+            color: #9f7caf;
+
+            font-size: 18px;
 
             font-style: italic;
 
-            color: #a8617b;
-
-            font-size: 18px;
+            margin-top: 35px;
         }
 
-        /* ========================================
+
+        /* =====================================================
+           SEPARATOR
+        ===================================================== */
+
+        .separator {
+            width: 70px;
+
+            height: 1px;
+
+            margin: 35px auto;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #805697,
+                    transparent
+                );
+        }
+
+
+        /* =====================================================
            QUESTION
-        ======================================== */
+        ===================================================== */
 
         .question {
-            margin-top: 42px;
+            text-align: center;
 
-            padding-top: 34px;
-
-            border-top:
-                1px solid rgba(180, 125, 146, 0.2);
+            margin-top: 10px;
         }
 
         .question h2 {
-            font-size: clamp(24px, 6vw, 34px);
+            font-size: clamp(25px, 6vw, 34px);
 
             font-weight: normal;
 
-            color: #513843;
+            line-height: 1.35;
+
+            color: #eee5f0;
 
             margin-bottom: 12px;
-
-            line-height: 1.35;
         }
 
-        .question p {
+        .question-subtitle {
             font-family: Arial, sans-serif;
 
-            font-size: 14px;
+            color: #8f8293;
 
-            color: #947d86;
+            font-size: 13px;
 
-            margin-bottom: 25px;
+            margin-bottom: 27px;
         }
-
-        /* ========================================
-           BOUTONS
-        ======================================== */
 
         .buttons {
             display: flex;
@@ -398,136 +502,164 @@
             flex-wrap: wrap;
         }
 
-        button {
-            border: none;
+        .answer-button {
+            min-height: 50px;
 
-            padding: 14px 25px;
+            padding: 14px 23px;
 
             border-radius: 50px;
 
-            font-size: 15px;
+            border: 1px solid transparent;
 
             cursor: pointer;
 
+            font-size: 15px;
+
             transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease,
-                background 0.25s ease;
-
-            min-height: 48px;
+                transform .25s ease,
+                box-shadow .25s ease,
+                background .25s ease;
         }
 
-        .yes {
-            background: #d98da7;
+        .forgive-button {
+            color: #f5edf7;
 
-            color: white;
+            background:
+                linear-gradient(
+                    135deg,
+                    #633d78,
+                    #432551
+                );
+
+            border-color: #76508b;
 
             box-shadow:
-                0 8px 20px rgba(181, 103, 132, 0.25);
+                0 8px 25px rgba(91, 52, 112, .25);
         }
 
-        .yes:hover {
+        .forgive-button:hover {
             transform: translateY(-3px);
-
-            background: #ce7897;
 
             box-shadow:
-                0 12px 25px rgba(181, 103, 132, 0.30);
+                0 13px 30px rgba(91, 52, 112, .4);
         }
 
-        .later {
-            background: #f5e8ed;
+        .later-button {
+            color: #bda99a;
 
-            color: #8e6877;
+            background:
+                rgba(87, 62, 46, .18);
+
+            border-color:
+                rgba(151, 112, 78, .3);
         }
 
-        .later:hover {
+        .later-button:hover {
             transform: translateY(-3px);
 
-            background: #f1dfe6;
+            background:
+                rgba(105, 75, 55, .25);
         }
 
-        /* ========================================
-           RÉPONSE
-        ======================================== */
 
-        .final-message {
+        /* =====================================================
+           FINAL RESPONSE
+        ===================================================== */
+
+        .response {
             margin-top: 30px;
 
-            font-size: clamp(16px, 4.5vw, 18px);
+            padding: 25px 20px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(92, 57, 108, .10);
+
+            border:
+                1px solid rgba(132, 91, 151, .15);
+
+            color: #c8bacd;
+
+            font-size: 17px;
 
             line-height: 1.8;
 
-            color: #765e68;
+            text-align: center;
 
-            animation: fadeUp 0.8s ease forwards;
+            animation: fadeUp .7s ease forwards;
         }
 
-        .final-heart {
-            font-size: 50px;
-
+        .response-heart {
             display: block;
 
-            margin-bottom: 15px;
+            font-size: 44px;
 
-            animation: heartbeat 1.3s infinite;
+            margin-bottom: 12px;
+
+            animation: heartbeat 1.4s infinite;
         }
 
-        /* ========================================
-           CŒURS
-        ======================================== */
 
-        .heart {
+        /* =====================================================
+           FLOATING PARTICLES
+        ===================================================== */
+
+        .particle {
             position: fixed;
 
-            bottom: -30px;
+            bottom: -20px;
 
             pointer-events: none;
 
-            animation: floatHeart linear forwards;
-
             z-index: 1;
 
-            opacity: 0.7;
+            opacity: 0;
+
+            animation:
+                particleFloat
+                linear
+                forwards;
         }
 
-        /* ========================================
+
+        /* =====================================================
            ANIMATIONS
-        ======================================== */
+        ===================================================== */
 
         @keyframes fadeUp {
 
             from {
                 opacity: 0;
-                transform: translateY(25px);
+
+                transform:
+                    translateY(25px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
 
-        @keyframes floatHeart {
+        @keyframes letterAppear {
 
             from {
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-
                 opacity: 0;
-            }
 
-            15% {
-                opacity: 0.7;
+                transform:
+                    translateY(30px)
+                    scale(.98);
             }
 
             to {
-                transform:
-                    translateY(-110vh)
-                    rotate(360deg);
+                opacity: 1;
 
-                opacity: 0;
+                transform:
+                    translateY(0)
+                    scale(1);
             }
         }
 
@@ -538,82 +670,119 @@
             }
 
             50% {
-                transform: scale(1.15);
+                transform: scale(1.13);
             }
         }
 
-        /* ========================================
-           TABLETTE
-        ======================================== */
+        @keyframes particleFloat {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .55;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
 
         @media (max-width: 768px) {
 
             .page {
                 align-items: flex-start;
 
-                padding-top: 60px;
-                padding-bottom: 50px;
+                padding-top: 55px;
             }
 
-            .screen {
-                max-width: 620px;
-            }
-
-            .letter {
-                padding: 32px 26px;
+            .letter-card {
+                padding:
+                    27px
+                    26px
+                    35px;
             }
         }
 
-        /* ========================================
-           TELEPHONE
-        ======================================== */
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
         @media (max-width: 600px) {
 
             .page {
                 padding-top: 35px;
-                padding-left: 14px;
-                padding-right: 14px;
+
+                padding-left: 13px;
+                padding-right: 13px;
             }
 
-            .small-text {
-                font-size: 10px;
-                letter-spacing: 2px;
+            .eyebrow {
+                font-size: 9px;
+
+                letter-spacing: 3px;
             }
 
             .name {
-                font-size: clamp(43px, 15vw, 64px);
+                font-size: clamp(47px, 16vw, 65px);
             }
 
             .nickname {
-                margin-bottom: 30px;
+                margin-bottom: 28px;
             }
 
-            .intro-message {
-                line-height: 1.7;
+            .intro-text {
+                line-height: 1.75;
             }
 
-            .envelope-container {
+            .envelope-area {
                 margin-top: 35px;
+
+                transform: scale(.92);
             }
 
-            .letter {
-                padding: 25px 20px;
+            .envelope-area:hover {
+                transform:
+                    scale(.92)
+                    translateY(-5px);
+            }
 
-                border-radius: 20px;
+            .letter-card {
+                padding:
+                    23px
+                    19px
+                    30px;
+
+                border-radius: 21px;
             }
 
             .back-button {
-                margin-bottom: 22px;
+                margin-bottom: 24px;
             }
 
             .letter-title {
-                margin-bottom: 25px;
+                margin-bottom: 27px;
             }
 
             .letter-text {
                 font-size: 16px;
-                line-height: 1.85;
+
+                line-height: 1.87;
             }
 
             .letter-text p {
@@ -621,29 +790,40 @@
             }
 
             .signature {
-                font-size: 17px;
                 margin-top: 28px;
+
+                font-size: 17px;
             }
 
-            .question {
-                margin-top: 32px;
-                padding-top: 28px;
+            .separator {
+                margin: 30px auto;
+            }
+
+            .question h2 {
+                font-size: 25px;
             }
 
             .buttons {
                 flex-direction: column;
+
                 align-items: center;
             }
 
-            .buttons button {
+            .answer-button {
                 width: 100%;
-                max-width: 280px;
+
+                max-width: 290px;
+            }
+
+            .response {
+                font-size: 16px;
             }
         }
 
-        /* ========================================
-           PETITS TELEPHONES
-        ======================================== */
+
+        /* =====================================================
+           PETITS TÉLÉPHONES
+        ===================================================== */
 
         @media (max-width: 380px) {
 
@@ -651,471 +831,638 @@
                 padding-top: 25px;
             }
 
-            .letter {
-                padding: 22px 17px;
+            .letter-card {
+                padding:
+                    21px
+                    16px
+                    27px;
             }
 
             .letter-text {
                 font-size: 15px;
+
+                line-height: 1.82;
             }
 
             .question h2 {
                 font-size: 23px;
             }
-
-            .envelope-container {
-                transform: scale(0.9);
-                margin-top: 25px;
-                margin-bottom: 15px;
-            }
-
-            .envelope-container:hover {
-                transform: scale(0.9) translateY(-5px);
-            }
         }
 
-        /* ========================================
-           ACCESSIBILITÉ
-        ======================================== */
+
+        /* =====================================================
+           REDUCTION DES ANIMATIONS
+        ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
             *,
             *::before,
             *::after {
-                animation-duration: 0.01ms !important;
+                animation-duration: .01ms !important;
+
                 animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+
+                transition-duration: .01ms !important;
+
                 scroll-behavior: auto !important;
             }
         }
+
     </style>
 </head>
 
 
 <body>
 
-<div class="page">
+    <!-- LUEURS D'ARRIÈRE-PLAN -->
 
-    <!-- ========================================
-         ÉCRAN D'ACCUEIL
-    ========================================= -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
 
-    <section
-        id="introScreen"
-        class="screen intro"
-    >
 
-        <div class="small-text">
-            Une petite chose pour toi
-        </div>
+    <main class="page">
 
-        <h1 class="name">
-            Nourine
-        </h1>
 
-        <div class="nickname">
-            ma douceur 🤍
-        </div>
+        <!-- =================================================
+             INTRO
+        ================================================= -->
 
-        <p class="intro-message">
-            J'aurais pu simplement t'envoyer un message...
-            <br>
-            Mais cette fois, j'avais envie de faire quelque chose
-            d'un peu différent.
-        </p>
-
-        <div
-            id="envelopeContainer"
-            class="envelope-container"
-            onclick="openLetter()"
-            role="button"
-            tabindex="0"
-            aria-label="Ouvrir la lettre"
+        <section
+            id="introScreen"
+            class="screen intro"
         >
 
-            <div class="envelope">
+            <div class="eyebrow">
+                Une petite chose pour toi
+            </div>
 
-                <div class="flap"></div>
 
-                <div class="envelope-heart">
-                    🤍
+            <h1 class="name">
+                Nourine
+            </h1>
+
+
+            <div class="nickname">
+                ma douceur 🤍
+            </div>
+
+
+            <p class="intro-text">
+
+                J'aurais pu simplement t'envoyer un message...
+
+                <br>
+
+                Mais cette fois,
+                <strong>
+                    j'avais envie de faire quelque chose
+                    de différent.
+                </strong>
+
+            </p>
+
+
+            <!-- ENVELOPPE -->
+
+            <div
+                id="envelopeArea"
+                class="envelope-area"
+                onclick="openLetter()"
+                role="button"
+                tabindex="0"
+                aria-label="Ouvrir la lettre"
+            >
+
+                <div class="envelope">
+
+                    <div class="flap"></div>
+
+                    <div class="envelope-heart">
+                        🤍
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
 
-        <div class="open-text">
-            Clique sur l'enveloppe
-        </div>
-
-    </section>
-
-
-    <!-- ========================================
-         LETTRE
-    ========================================= -->
-
-    <section
-        id="letterScreen"
-        class="screen hidden"
-    >
-
-        <div class="letter">
-
-            <!-- RETOUR -->
-
-            <button
-                class="back-button"
-                onclick="goBack()"
-                type="button"
-            >
-                ← Revenir à l'enveloppe
-            </button>
-
-
-            <h2 class="letter-title">
-                Pour toi, Nourine 🤍
-            </h2>
-
-
-            <div class="letter-text">
-
-                <p>
-                    J'aurais pu simplement t'envoyer un message
-                    pour te dire pardon.
-                </p>
-
-                <p>
-                    Mais cette fois, j'avais envie de faire quelque
-                    chose de différent.
-                </p>
-
-                <p>
-                    Parce que je me rends compte d'une chose...
-                </p>
-
-                <p>
-                    J'ai beaucoup parlé.
-                    J'ai dit certaines choses.
-                    Mais derrière mes paroles,
-                    <span class="highlight">
-                        mes actes n'ont pas toujours suivi.
-                    </span>
-                </p>
-
-                <p>
-                    Et je comprends que, peu importe la beauté de
-                    ce que je peux dire, ce sont finalement mes actes
-                    qui doivent te montrer ce que tu représentes
-                    pour moi.
-                </p>
-
-                <p>
-                    Même des petites choses, comme t'appeler
-                    <span class="highlight">
-                        « coucou toi »
-                    </span>
-                    alors que tu es quelqu'un que je considère
-                    bien plus que ça...
-                </p>
-
-                <p>
-                    Avec le recul, je comprends que ça puisse te
-                    donner l'impression que mes mots ne correspondent
-                    pas vraiment à ce que je ressens.
-                </p>
-
-                <p>
-                    Et pour ça, je suis désolé.
-                </p>
-
-                <p>
-                    Je ne vais pas essayer de me trouver des excuses
-                    ni te promettre mille choses.
-                </p>
-
-                <p>
-                    Je veux simplement te dire que
-                    <span class="highlight">
-                        j'ai compris.
-                    </span>
-                </p>
-
-                <p>
-                    Et si je te demande pardon aujourd'hui,
-                    ce n'est pas parce que je veux effacer ce que
-                    j'ai fait avec quelques jolies paroles.
-                </p>
-
-                <p>
-                    C'est parce que j'aimerais avoir l'occasion
-                    de te le montrer autrement.
-                </p>
-
-                <p>
-                    Parce que tu es
-                    <span class="highlight">
-                        ma douceur.
-                    </span>
-                    🤍
-                </p>
-
-                <p>
-                    Et que tu mérites que mes actes parlent enfin
-                    autant que mes paroles.
-                </p>
-
+            <div class="open-hint">
+                Touche l'enveloppe
             </div>
 
-
-            <div class="signature">
-                Avec sincérité 🤍
-            </div>
+        </section>
 
 
-            <!-- QUESTION -->
 
-            <div class="question">
+        <!-- =================================================
+             LETTRE
+        ================================================= -->
 
-                <h2>
-                    Est-ce que tu peux me pardonner ?
+        <section
+            id="letterScreen"
+            class="screen hidden"
+        >
+
+            <article class="letter-card">
+
+
+                <!-- RETOUR -->
+
+                <button
+                    type="button"
+                    class="back-button"
+                    onclick="goBack()"
+                >
+                    ← Revenir à l'enveloppe
+                </button>
+
+
+                <h2 class="letter-title">
+
+                    Pour toi,
+                    <span>Nourine</span> 🤍
+
                 </h2>
 
-                <p>
-                    Je te laisse répondre sincèrement.
-                </p>
 
-                <div class="buttons">
+                <!-- MESSAGE -->
 
-                    <button
-                        class="yes"
-                        onclick="forgive()"
-                        type="button"
-                    >
-                        Oui 🤍
-                    </button>
+                <div class="letter-text">
 
-                    <button
-                        class="later"
-                        onclick="needTime()"
-                        type="button"
-                    >
-                        J'ai besoin de temps
-                    </button>
+                    <p>
+                        J'aurais pu simplement t'envoyer un message
+                        pour te dire pardon.
+                    </p>
+
+
+                    <p>
+                        Mais cette fois, j'avais envie de faire
+                        quelque chose de différent.
+                    </p>
+
+
+                    <p>
+                        Parce que je me rends compte d'une chose...
+                    </p>
+
+
+                    <p>
+                        J'ai beaucoup parlé.
+                        J'ai dit certaines choses.
+                        Mais derrière mes paroles,
+                        <span class="highlight">
+                            mes actes n'ont pas toujours suivi.
+                        </span>
+                    </p>
+
+
+                    <p>
+                        Et je comprends aujourd'hui que peu importe
+                        la beauté de ce que je peux dire,
+                        ce sont finalement mes actes qui doivent
+                        te montrer ce que tu représentes pour moi.
+                    </p>
+
+
+                    <p>
+                        Peut-être que certaines petites choses
+                        peuvent sembler insignifiantes.
+                        Un mot, une façon de t'appeler,
+                        une promesse que je ne concrétise pas...
+                    </p>
+
+
+                    <p>
+                        Mais accumulées,
+                        ces petites choses peuvent finir
+                        par faire beaucoup.
+                    </p>
+
+
+                    <p>
+                        Même t'appeler
+                        <span class="highlight">
+                            « coucou toi »
+                        </span>
+                        alors que tu es quelqu'un que je considère
+                        bien plus que ça...
+                    </p>
+
+
+                    <p>
+                        Avec le recul, je comprends que ça puisse
+                        te donner l'impression que mes mots
+                        ne correspondent pas toujours à ce que
+                        je ressens réellement.
+                    </p>
+
+
+                    <p>
+                        Et pour ça,
+                        <span class="highlight">
+                            je suis désolé.
+                        </span>
+                    </p>
+
+
+                    <p>
+                        Je ne veux pas essayer de me trouver
+                        des excuses.
+                    </p>
+
+
+                    <p>
+                        Je ne veux pas non plus te faire
+                        mille promesses juste pour que
+                        tu me pardonnes.
+                    </p>
+
+
+                    <p>
+                        Je veux simplement te dire que
+                        <span class="highlight">
+                            j'ai compris.
+                        </span>
+                    </p>
+
+
+                    <p>
+                        Cette fois, je ne veux pas te convaincre
+                        avec des mots.
+                    </p>
+
+
+                    <p>
+                        J'aimerais simplement avoir
+                        l'occasion de te le montrer autrement.
+                    </p>
+
+
+                    <p>
+                        Parce que tu es
+                        <span class="highlight">
+                            ma douceur.
+                        </span>
+                        🤍
+                    </p>
+
+
+                    <p>
+                        Et tu mérites que mes actes parlent
+                        enfin autant que mes paroles.
+                    </p>
 
                 </div>
 
 
-                <div
-                    id="response"
-                    class="final-message hidden"
-                ></div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-</div>
+                <div class="signature">
+                    Avec sincérité 🤍
+                </div>
 
 
-<script>
+                <div class="separator"></div>
 
-    /* ========================================
-       OUVRIR LA LETTRE
-    ========================================= */
 
-    function openLetter() {
+                <!-- QUESTION -->
 
-        const envelope =
-            document.getElementById("envelopeContainer");
+                <div class="question">
 
-        const intro =
-            document.getElementById("introScreen");
+                    <h2>
+                        Alors Nourine...
+                    </h2>
 
-        const letter =
-            document.getElementById("letterScreen");
+                    <h2>
+                        Est-ce que tu acceptes mes excuses ?
+                    </h2>
 
-        envelope.classList.add("open");
 
-        createHearts(12);
+                    <p class="question-subtitle">
+                        Je te laisse répondre sincèrement.
+                    </p>
 
-        setTimeout(() => {
 
-            intro.classList.add("hidden");
+                    <div class="buttons">
 
-            letter.classList.remove("hidden");
+                        <button
+                            type="button"
+                            class="answer-button forgive-button"
+                            onclick="forgive()"
+                        >
+                            🤍 Oui, je te pardonne
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="answer-button later-button"
+                            onclick="needTime()"
+                        >
+                            🌙 Pas encore
+                        </button>
+
+                    </div>
+
+
+                    <!-- RÉPONSE -->
+
+                    <div
+                        id="response"
+                        class="response hidden"
+                    ></div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+
+    <script>
+
+        /* =====================================================
+           OUVRIR LA LETTRE
+        ===================================================== */
+
+        function openLetter() {
+
+            const envelope =
+                document.getElementById("envelopeArea");
+
+            const intro =
+                document.getElementById("introScreen");
+
+            const letter =
+                document.getElementById("letterScreen");
+
+
+            envelope.classList.add("open");
+
+
+            createParticles(15);
+
+
+            setTimeout(() => {
+
+                intro.classList.add("hidden");
+
+                letter.classList.remove("hidden");
+
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }, 900);
+
+        }
+
+
+
+        /* =====================================================
+           RETOUR À L'ENVELOPPE
+        ===================================================== */
+
+        function goBack() {
+
+            const intro =
+                document.getElementById("introScreen");
+
+            const letter =
+                document.getElementById("letterScreen");
+
+            const envelope =
+                document.getElementById("envelopeArea");
+
+            const response =
+                document.getElementById("response");
+
+
+            letter.classList.add("hidden");
+
+            intro.classList.remove("hidden");
+
+
+            envelope.classList.remove("open");
+
+
+            response.classList.add("hidden");
+
+            response.innerHTML = "";
+
 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
 
-        }, 900);
-    }
-
-
-    /* ========================================
-       REVENIR À L'ENVELOPPE
-    ========================================= */
-
-    function goBack() {
-
-        const intro =
-            document.getElementById("introScreen");
-
-        const letter =
-            document.getElementById("letterScreen");
-
-        const envelope =
-            document.getElementById("envelopeContainer");
-
-        letter.classList.add("hidden");
-
-        intro.classList.remove("hidden");
-
-        envelope.classList.remove("open");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
-
-
-    /* ========================================
-       RÉPONSE : OUI
-    ========================================= */
-
-    function forgive() {
-
-        const response =
-            document.getElementById("response");
-
-        response.innerHTML = `
-            <span class="final-heart">🤍</span>
-
-            Merci de me laisser cette chance.
-
-            <br><br>
-
-            Maintenant, à moi de faire en sorte
-            que mes actes parlent pour moi.
-        `;
-
-        response.classList.remove("hidden");
-
-        createHearts(35);
-    }
-
-
-    /* ========================================
-       RÉPONSE : BESOIN DE TEMPS
-    ========================================= */
-
-    function needTime() {
-
-        const response =
-            document.getElementById("response");
-
-        response.innerHTML = `
-            <span class="final-heart">🤍</span>
-
-            Je comprends.
-
-            <br><br>
-
-            Prends le temps dont tu as besoin.
-            Je ne t'en voudrai pas.
-        `;
-
-        response.classList.remove("hidden");
-
-        createHearts(8);
-    }
-
-
-    /* ========================================
-       CRÉER DES CŒURS
-    ========================================= */
-
-    function createHearts(number) {
-
-        const symbols = [
-            "🤍",
-            "♡",
-            "♥",
-            "✦"
-        ];
-
-        for (let i = 0; i < number; i++) {
-
-            const heart =
-                document.createElement("div");
-
-            heart.className = "heart";
-
-            heart.textContent =
-                symbols[
-                    Math.floor(
-                        Math.random() * symbols.length
-                    )
-                ];
-
-            heart.style.left =
-                Math.random() * 100 + "vw";
-
-            heart.style.fontSize =
-                (12 + Math.random() * 20) + "px";
-
-            heart.style.animationDuration =
-                (5 + Math.random() * 5) + "s";
-
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 10000);
         }
-    }
 
 
-    /* ========================================
-       OUVERTURE AVEC LE CLAVIER
-       ======================================== */
 
-    document
-        .getElementById("envelopeContainer")
-        .addEventListener("keydown", function(event) {
+        /* =====================================================
+           OUI — JE TE PARDONNE
+        ===================================================== */
 
-            if (
-                event.key === "Enter" ||
-                event.key === " "
+        function forgive() {
+
+            const response =
+                document.getElementById("response");
+
+
+            response.innerHTML = `
+
+                <span class="response-heart">
+                    🤍
+                </span>
+
+                Merci de me laisser cette chance.
+
+                <br><br>
+
+                Maintenant,
+                à moi de faire en sorte que
+                mes actes parlent pour moi.
+
+            `;
+
+
+            response.classList.remove("hidden");
+
+
+            createParticles(40);
+
+        }
+
+
+
+        /* =====================================================
+           PAS ENCORE
+        ===================================================== */
+
+        function needTime() {
+
+            const response =
+                document.getElementById("response");
+
+
+            response.innerHTML = `
+
+                <span class="response-heart">
+                    🌙
+                </span>
+
+                Je comprends.
+
+                <br><br>
+
+                Prends le temps dont tu as besoin.
+                Je ne t'en voudrai pas.
+
+                <br><br>
+
+                Je voulais simplement que tu saches
+                ce que j'avais sur le cœur.
+
+            `;
+
+
+            response.classList.remove("hidden");
+
+
+            createParticles(8);
+
+        }
+
+
+
+        /* =====================================================
+           PARTICULES
+        ===================================================== */
+
+        function createParticles(number) {
+
+            const symbols = [
+                "✦",
+                "✧",
+                "♡",
+                "🤍"
+            ];
+
+
+            for (
+                let i = 0;
+                i < number;
+                i++
             ) {
 
-                event.preventDefault();
+                const particle =
+                    document.createElement("div");
 
-                openLetter();
+
+                particle.className =
+                    "particle";
+
+
+                particle.textContent =
+                    symbols[
+                        Math.floor(
+                            Math.random()
+                            * symbols.length
+                        )
+                    ];
+
+
+                particle.style.left =
+                    Math.random() * 100
+                    + "vw";
+
+
+                particle.style.fontSize =
+                    (
+                        10
+                        + Math.random() * 17
+                    )
+                    + "px";
+
+
+                particle.style.color =
+                    Math.random() > .5
+                        ? "#a678bd"
+                        : "#a8896d";
+
+
+                particle.style.animationDuration =
+                    (
+                        5
+                        + Math.random() * 5
+                    )
+                    + "s";
+
+
+                document.body.appendChild(
+                    particle
+                );
+
+
+                setTimeout(() => {
+
+                    particle.remove();
+
+                }, 10000);
+
             }
-        });
 
-
-    /* ========================================
-       PETITS CŒURS EN ARRIÈRE-PLAN
-    ========================================= */
-
-    setInterval(() => {
-
-        if (!document.hidden) {
-            createHearts(1);
         }
 
-    }, 2200);
 
-</script>
+
+        /* =====================================================
+           CLAVIER
+        ===================================================== */
+
+        document
+            .getElementById("envelopeArea")
+            .addEventListener(
+                "keydown",
+                function(event) {
+
+                    if (
+                        event.key === "Enter"
+                        ||
+                        event.key === " "
+                    ) {
+
+                        event.preventDefault();
+
+                        openLetter();
+
+                    }
+
+                }
+            );
+
+
+
+        /* =====================================================
+           PARTICULES D'AMBIANCE
+        ===================================================== */
+
+        setInterval(() => {
+
+            if (!document.hidden) {
+
+                createParticles(1);
+
+            }
+
+        }, 2500);
+
+    </script>
 
 </body>
 </html>
