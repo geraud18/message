@@ -1224,11 +1224,15 @@
 
             .page {
 
-                padding-top: 35px;
+                /* Garde un vrai espace en haut sur mobile, même avec les barres du navigateur */
+                min-height: 100svh;
+                min-height: 100dvh;
+                align-items: flex-start;
 
+                padding-top: max(55px, calc(env(safe-area-inset-top) + 30px));
                 padding-left: 13px;
-
                 padding-right: 13px;
+                padding-bottom: max(45px, env(safe-area-inset-bottom));
             }
 
 
@@ -1370,7 +1374,7 @@
 
             .page {
 
-                padding-top: 25px;
+                padding-top: max(50px, calc(env(safe-area-inset-top) + 25px));
             }
 
 
@@ -1761,6 +1765,15 @@
 
 
     <script>
+
+        /* Sur mobile, toujours afficher le début de la page après actualisation. */
+        if ("scrollRestoration" in history) {
+            history.scrollRestoration = "manual";
+        }
+
+        window.addEventListener("pageshow", function () {
+            window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+        });
 
 
         /* ==========================================
